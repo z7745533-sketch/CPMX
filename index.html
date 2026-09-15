@@ -3,110 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPMX</title>
+<title>CPMX | Premium Digital Market</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;}
 
 body{
-    background:#06060a;
+    background:#07050d;
     color:#fff;
     overflow-x:hidden;
 }
 
-.loader{
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#8b2cff;
+    filter:blur(180px);
+    opacity:.18;
+    top:-150px;
+    left:-150px;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#4b00ff;
+    filter:blur(180px);
+    opacity:.15;
+    bottom:-150px;
+    right:-100px;
+    z-index:-2;
+}
+
+/* GİRİŞ EKRANI */
+.intro{
     position:fixed;
     inset:0;
-    z-index:9999;
-    background:#06060a;
+    background:#05030a;
     display:flex;
     align-items:center;
     justify-content:center;
-    animation:hideLoader 1s 1.7s forwards;
+    z-index:9999;
+    animation:introOut 1s ease 3.2s forwards;
 }
 
-.loader-logo{
-    font-size:45px;
-    font-weight:900;
-    animation:pulse 1s infinite alternate;
+.intro-content{
+    text-align:center;
+    animation:introIn 1.2s ease;
 }
 
-.loader-logo span{
-    color:#8b5cf6;
+.intro-logo{
+    font-size:75px;
+    font-weight:1000;
+    letter-spacing:8px;
+    text-shadow:
+        0 0 15px #9d4edd,
+        0 0 40px #7b2cff,
+        0 0 90px #5f00ff;
 }
 
-@keyframes pulse{
-    from{transform:scale(.95);opacity:.5}
-    to{transform:scale(1.05);opacity:1}
+.intro-logo span{color:#b967ff;}
+
+.intro-text{
+    margin-top:15px;
+    color:#aaa;
+    letter-spacing:5px;
+    font-size:12px;
 }
 
-@keyframes hideLoader{
-    to{opacity:0;visibility:hidden}
+.loader{
+    width:180px;
+    height:4px;
+    background:#20152e;
+    margin:30px auto 0;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.bg{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-1;
+.loader span{
+    display:block;
+    width:0;
+    height:100%;
+    background:linear-gradient(90deg,#7b2cff,#d28cff);
+    animation:load 2.5s ease forwards;
 }
 
-.orb{
-    position:absolute;
-    width:400px;
-    height:400px;
-    border-radius:50%;
-    filter:blur(110px);
-    opacity:.18;
+@keyframes load{to{width:100%;}}
+
+@keyframes introIn{
+    from{opacity:0;transform:scale(.7);}
+    to{opacity:1;transform:scale(1);}
 }
 
-.orb.one{
-    background:#7c3aed;
-    top:-150px;
-    left:-100px;
+@keyframes introOut{
+    to{opacity:0;visibility:hidden;}
 }
 
-.orb.two{
-    background:#2563eb;
-    right:-150px;
-    top:350px;
-}
-
+/* NAVBAR */
 header{
     position:fixed;
     top:0;
     left:0;
-    right:0;
-    z-index:100;
+    width:100%;
+    z-index:1000;
     padding:18px 7%;
-    background:#06060acc;
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid #ffffff0d;
-}
-
-.nav{
-    max-width:1200px;
-    margin:auto;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
+    background:rgba(7,5,13,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-    font-size:27px;
-    font-weight:900;
+    font-size:25px;
+    font-weight:1000;
+    letter-spacing:2px;
 }
 
-.logo span{
-    color:#8b5cf6;
-}
+.logo span{color:#b967ff;}
 
 nav{
     display:flex;
@@ -114,600 +141,849 @@ nav{
 }
 
 nav a{
-    color:#92929e;
+    color:#bbb;
     text-decoration:none;
     font-size:14px;
     transition:.3s;
 }
 
-nav a:hover{
-    color:white;
-}
+nav a:hover{color:#c477ff;}
 
-.nav-btn{
-    padding:10px 17px;
-    border-radius:10px;
-    background:#8b5cf6;
-    color:white;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:bold;
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:120px 20px 70px;
-}
-
-.badge{
-    display:inline-block;
-    padding:8px 14px;
-    border:1px solid #8b5cf655;
-    background:#8b5cf612;
-    color:#bda9ff;
-    border-radius:50px;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(55px,9vw,105px);
-    line-height:.95;
-    letter-spacing:-5px;
-}
-
-.hero h1 span{
-    color:#8b5cf6;
-}
-
-.hero p{
-    max-width:620px;
-    margin:25px auto;
-    color:#898994;
-    line-height:1.7;
-    font-size:17px;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
+/* BUTON */
 .btn{
-    padding:15px 25px;
+    display:inline-block;
+    padding:15px 23px;
     border-radius:12px;
     text-decoration:none;
     font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+    cursor:pointer;
+    border:none;
 }
 
-.primary{
-    color:white;
-    background:#8b5cf6;
-    box-shadow:0 0 35px #8b5cf633;
+.btn-primary{
+    color:#fff;
+    background:linear-gradient(135deg,#7b2cff,#b44cff);
+    box-shadow:0 0 30px rgba(123,44,255,.3);
 }
 
-.secondary{
-    color:white;
-    border:1px solid #272731;
-    background:#ffffff05;
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 45px rgba(123,44,255,.55);
 }
 
-section{
-    padding:100px 7%;
+.btn-dark{
+    color:#fff;
+    background:#15111d;
+    border:1px solid #2b2335;
 }
 
-.section-title{
-    max-width:1200px;
-    margin:0 auto 45px;
+.btn-dark:hover{border-color:#9d4edd;}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    padding:150px 7% 70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
 }
 
-.section-title h2{
-    font-size:42px;
-    letter-spacing:-1px;
+.hero-left{max-width:650px;}
+
+.badge{
+    display:inline-block;
+    padding:9px 15px;
+    border:1px solid rgba(190,100,255,.35);
+    background:rgba(145,50,255,.1);
+    color:#c984ff;
+    border-radius:50px;
+    font-size:12px;
+    margin-bottom:22px;
 }
 
-.section-title p{
-    color:#777783;
+.hero h1{
+    font-size:clamp(45px,7vw,85px);
+    line-height:.95;
+    font-weight:1000;
+}
+
+.hero h1 span{
+    color:#a855f7;
+    text-shadow:0 0 35px rgba(168,85,247,.5);
+}
+
+.hero p{
+    margin-top:25px;
+    color:#999;
+    line-height:1.7;
+    max-width:570px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* CPMX LOGO ALANI */
+.logo-showcase{
+    position:relative;
+    width:360px;
+    height:360px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:28px;
+    background:linear-gradient(145deg,rgba(33,20,48,.95),rgba(12,8,18,.95));
+    border:1px solid rgba(190,100,255,.2);
+    box-shadow:0 0 70px rgba(126,34,255,.18);
+    transform:rotate(3deg);
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-15px);}
+}
+
+.glow-circle{
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:#8b2cff;
+    filter:blur(80px);
+    opacity:.3;
+    animation:pulseGlow 3s ease-in-out infinite;
+}
+
+.showcase-logo{
+    position:relative;
+    z-index:2;
+    font-size:65px;
+    font-weight:1000;
+    letter-spacing:5px;
+    text-shadow:
+        0 0 15px #a855f7,
+        0 0 35px #8b2cff,
+        0 0 70px #6d28d9;
+    animation:logoFloat 3s ease-in-out infinite;
+}
+
+.showcase-logo span{color:#c477ff;}
+
+.showcase-line{
+    position:relative;
+    width:120px;
+    height:2px;
+    margin:15px 0;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #c477ff,
+        transparent
+    );
+    box-shadow:0 0 15px #a855f7;
+}
+
+.logo-showcase p{
+    position:relative;
+    color:#999;
+    font-size:11px;
+    letter-spacing:4px;
+}
+
+.floating-dot{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#c477ff;
+    box-shadow:0 0 15px #a855f7;
+}
+
+.dot1{
+    top:60px;
+    left:70px;
+    animation:dotMove 4s infinite;
+}
+
+.dot2{
+    bottom:70px;
+    right:60px;
+    animation:dotMove 5s infinite reverse;
+}
+
+.dot3{
+    top:100px;
+    right:45px;
+    animation:dotMove 3s infinite;
+}
+
+@keyframes pulseGlow{
+    0%,100%{transform:scale(.85);opacity:.2;}
+    50%{transform:scale(1.15);opacity:.4;}
+}
+
+@keyframes logoFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+@keyframes dotMove{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-25px) scale(1.5);}
+}
+
+/* STATS */
+.stats{
+    width:86%;
+    margin:0 auto 80px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    background:#0d0913;
+    border:1px solid #21192b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.stat{
+    text-align:center;
+    padding:25px;
+    border-right:1px solid #21192b;
+}
+
+.stat:last-child{border-right:0;}
+
+.stat h3{font-size:25px;}
+
+.stat p{
+    color:#777;
+    font-size:12px;
+    margin-top:6px;
+}
+
+/* SECTIONS */
+section{padding:90px 7%;}
+
+.section-head{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-head .small{
+    color:#a855f7;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:40px;
     margin-top:10px;
 }
 
-/* ÜRÜNLER */
+.section-head p{
+    color:#777;
+    margin-top:10px;
+}
 
+/* ARAMA */
+.search-box{
+    max-width:550px;
+    margin:0 auto 35px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border-radius:14px;
+    outline:none;
+    border:1px solid #2b2037;
+    background:#100b17;
+    color:#fff;
+    font-size:14px;
+}
+
+.search-box input:focus{
+    border-color:#9d4edd;
+    box-shadow:0 0 25px rgba(157,78,221,.15);
+}
+
+/* ÜRÜNLER */
 .products{
-    max-width:1200px;
-    margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .card{
     position:relative;
-    padding:28px;
-    border:1px solid #20202a;
-    background:linear-gradient(145deg,#111119,#0b0b10);
+    padding:27px;
     border-radius:22px;
+    background:linear-gradient(145deg,#120d19,#0b0810);
+    border:1px solid #241a2d;
     transition:.35s;
     overflow:hidden;
 }
 
+.card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:#8b2cff;
+    filter:blur(80px);
+    opacity:0;
+    right:-40px;
+    top:-40px;
+    transition:.35s;
+}
+
 .card:hover{
     transform:translateY(-8px);
-    border-color:#8b5cf655;
-    box-shadow:0 20px 60px #000;
+    border-color:#8f42c5;
+    box-shadow:0 20px 50px rgba(91,0,150,.18);
 }
 
-.popular{
-    position:absolute;
-    top:18px;
-    right:18px;
+.card:hover::before{opacity:.35;}
+
+.card .tag{
+    display:inline-block;
+    background:rgba(168,85,247,.12);
+    color:#c984ff;
+    border-radius:50px;
     padding:6px 10px;
-    border-radius:20px;
-    background:#8b5cf6;
-    font-size:11px;
+    font-size:10px;
     font-weight:bold;
-}
-
-.product-icon{
-    width:58px;
-    height:58px;
-    display:grid;
-    place-items:center;
-    background:#8b5cf615;
-    border:1px solid #8b5cf622;
-    border-radius:16px;
-    font-size:25px;
-    margin-bottom:22px;
-}
-
-.card h3{
-    font-size:20px;
-}
-
-.card p{
-    color:#777783;
-    font-size:14px;
-    line-height:1.7;
-    margin-top:12px;
-    min-height:105px;
-}
-
-.price{
-    font-size:30px;
-    font-weight:900;
-    margin:22px 0;
-}
-
-.buy{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:11px;
-    color:white;
-    background:#8b5cf6;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.buy:hover{
-    background:#7041d8;
-}
-
-/* AVANTAJLAR */
-
-.features{
-    background:#09090e;
-}
-
-.feature-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.feature{
-    padding:28px;
-    border:1px solid #ffffff0b;
-    border-radius:18px;
-    background:#ffffff03;
-}
-
-.feature-icon{
-    font-size:30px;
     margin-bottom:15px;
 }
 
-.feature h3{
-    font-size:17px;
+.card h3{font-size:20px;}
+
+.card .price{
+    font-size:34px;
+    font-weight:1000;
+    margin:15px 0;
 }
 
+.card .desc{
+    color:#888;
+    min-height:50px;
+    line-height:1.5;
+    font-size:13px;
+}
+
+.card button{
+    width:100%;
+    margin-top:20px;
+    padding:13px;
+    border-radius:11px;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    background:#19111f;
+    border:1px solid #30213b;
+    transition:.3s;
+}
+
+.card button:hover{
+    background:#7b2cff;
+    border-color:#7b2cff;
+}
+
+/* AVANTAJLAR */
+.features{background:#09070d;}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    padding:30px;
+    background:#100b16;
+    border:1px solid #21182a;
+    border-radius:20px;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(168,85,247,.13);
+    color:#c477ff;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.feature h3{margin-bottom:10px;}
+
 .feature p{
-    color:#70707b;
+    color:#777;
     font-size:13px;
     line-height:1.6;
+}
+
+/* NASIL ÇALIŞIR */
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+    padding:30px;
+}
+
+.number{
+    width:55px;
+    height:55px;
+    margin:0 auto 18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7b2cff,#b44cff);
+    font-weight:bold;
+    box-shadow:0 0 30px rgba(123,44,255,.25);
+}
+
+.step p{
+    color:#777;
     margin-top:8px;
+    font-size:13px;
 }
 
 /* CTA */
-
 .cta{
+    width:86%;
+    margin:30px auto 90px;
+    padding:60px 30px;
     text-align:center;
-    padding:120px 20px;
-}
-
-.cta-box{
-    max-width:850px;
-    margin:auto;
-    padding:60px 25px;
-    border:1px solid #8b5cf633;
     border-radius:28px;
-    background:radial-gradient(circle,#8b5cf615,transparent 65%);
+    background:
+        radial-gradient(circle at center,rgba(132,46,255,.18),transparent 60%),
+        #100a17;
+    border:1px solid #291936;
 }
 
-.cta h2{
-    font-size:42px;
-}
+.cta h2{font-size:40px;}
 
 .cta p{
-    color:#777783;
-    margin:15px auto 30px;
+    color:#888;
+    margin:12px 0 25px;
 }
 
 /* FOOTER */
-
 footer{
-    padding:35px 7%;
-    border-top:1px solid #ffffff0b;
     text-align:center;
-    color:#555560;
-    font-size:13px;
+    padding:30px;
+    border-top:1px solid #17111e;
+    color:#666;
+    font-size:12px;
 }
 
-/* MODAL */
+footer strong{color:#b967ff;}
 
+/* MODAL */
 .modal{
-    display:none;
     position:fixed;
     inset:0;
-    z-index:500;
-    background:#000c;
-    backdrop-filter:blur(8px);
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
+    display:none;
     align-items:center;
     justify-content:center;
+    z-index:5000;
     padding:20px;
 }
 
+.modal.show{display:flex;}
+
 .modal-box{
     width:100%;
-    max-width:450px;
-    background:#111119;
-    border:1px solid #292936;
-    border-radius:22px;
+    max-width:500px;
     padding:30px;
+    border-radius:24px;
+    background:#100b16;
+    border:1px solid #39254a;
+    box-shadow:0 0 80px rgba(100,0,180,.25);
+    animation:modalIn .3s ease;
+}
+
+@keyframes modalIn{
+    from{opacity:0;transform:scale(.9);}
+    to{opacity:1;transform:scale(1);}
 }
 
 .close{
     float:right;
-    cursor:pointer;
+    font-size:25px;
     color:#777;
-    font-size:24px;
+    cursor:pointer;
 }
 
 .modal-box h2{
-    margin-bottom:10px;
+    margin-top:15px;
+    font-size:28px;
 }
 
-.modal-box p{
-    color:#858590;
+.modal-price{
+    color:#c477ff;
+    font-size:32px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.modal-info{
+    color:#aaa;
     line-height:1.7;
-    font-size:14px;
-}
-
-.notice{
-    margin:20px 0;
-    padding:14px;
-    border-radius:12px;
-    background:#ffffff05;
-    border:1px solid #ffffff0b;
-    color:#999;
-    font-size:13px;
+    margin-bottom:20px;
 }
 
 /* MOBİL */
+@media(max-width:900px){
 
-@media(max-width:800px){
+    nav{display:none;}
 
-    nav{
-        display:none;
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:130px;
     }
 
-    .nav-btn{
-        display:none;
+    .hero-left{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
     }
 
-    .feature-grid{
-        grid-template-columns:1fr 1fr;
+    .logo-showcase{
+        width:100%;
+        max-width:360px;
     }
+
+    .products,
+    .feature-grid,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:0;
+        border-bottom:1px solid #21192b;
+    }
+
+    .stat:last-child{border-bottom:0;}
+
+    .section-head h2{font-size:32px;}
+
+    .cta h2{font-size:30px;}
 }
 
 @media(max-width:500px){
 
-    section{
-        padding:75px 5%;
-    }
+    .hero h1{font-size:48px;}
 
-    .hero h1{
-        font-size:60px;
-        letter-spacing:-3px;
-    }
+    .intro-logo{font-size:55px;}
 
-    .section-title h2{
-        font-size:32px;
-    }
+    section{padding:70px 5%;}
 
-    .feature-grid{
-        grid-template-columns:1fr;
-    }
+    header{padding:16px 5%;}
 
+    .logo-showcase{height:330px;}
+
+    .showcase-logo{font-size:55px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg">
-    <div class="orb one"></div>
-    <div class="orb two"></div>
+<!-- GİRİŞ EKRANI -->
+<div class="intro">
+    <div class="intro-content">
+        <div class="intro-logo">CPM<span>X</span></div>
+        <div class="intro-text">PREMİUM DİJİTAL MARKET</div>
+
+        <div class="loader">
+            <span></span>
+        </div>
+    </div>
 </div>
 
-<div class="loader">
-    <div class="loader-logo">
+<!-- NAVBAR -->
+<header>
+
+    <div class="logo">
         CPM<span>X</span>
     </div>
-</div>
 
-<header>
-    <div class="nav">
+    <nav>
+        <a href="#home">Ana Sayfa</a>
+        <a href="#products">Kasalar</a>
+        <a href="#features">Avantajlar</a>
+        <a href="#how">Nasıl Çalışır?</a>
+    </nav>
 
-        <div class="logo">
-            CPM<span>X</span>
-        </div>
+    <a
+        class="btn btn-primary"
+        href="https://www.instagram.com/yildizzsefayakup/"
+        target="_blank"
+    >
+        Instagram
+    </a>
 
-        <nav>
-            <a href="#home">Ana Sayfa</a>
-            <a href="#products">Ürünler</a>
-            <a href="#features">Avantajlar</a>
-        </nav>
-
-        <a href="#products" class="nav-btn">
-            Ürünlere Bak
-        </a>
-
-    </div>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
 
-    <div>
+    <div class="hero-left">
 
         <div class="badge">
-            ✦ CPMX'e Hoş Geldin
+            ● CPMX AKTİF
         </div>
 
         <h1>
-            Dijital ürünlerin
-            <br>
-            <span>yeni adresi.</span>
+            Gücünü<br>
+            <span>CPMX'ten</span> al.
         </h1>
 
         <p>
-            İhtiyacına uygun ürünleri keşfet.
-            Basit, hızlı ve modern bir alışveriş deneyimi.
+            İhtiyacına uygun özel kasa paketlerini keşfet.
+            Premium içerikler, farklı seçenekler ve kolay
+            sipariş deneyimi CPMX'te.
         </p>
 
-        <div class="hero-buttons">
+        <div class="buttons">
 
-            <a href="#products" class="btn primary">
-                Ürünleri Keşfet →
+            <a href="#products" class="btn btn-primary">
+                Kasaları İncele
             </a>
 
-            <a href="#features" class="btn secondary">
-                Daha Fazla
+            <a
+                href="https://www.instagram.com/yildizzsefayakup/"
+                target="_blank"
+                class="btn btn-dark"
+            >
+                Instagram'dan Sipariş
             </a>
 
         </div>
+
+    </div>
+
+    <!-- NEON CPMX -->
+    <div class="logo-showcase">
+
+        <div class="glow-circle"></div>
+
+        <div class="showcase-logo">
+            CPM<span>X</span>
+        </div>
+
+        <div class="showcase-line"></div>
+
+        <p>PREMİUM DİJİTAL MARKET</p>
+
+        <div class="floating-dot dot1"></div>
+        <div class="floating-dot dot2"></div>
+        <div class="floating-dot dot3"></div>
 
     </div>
 
 </section>
 
-<!-- ÜRÜNLER -->
+<!-- İSTATİSTİK -->
+<div class="stats">
 
+    <div class="stat">
+        <h3>6</h3>
+        <p>Farklı Kasa</p>
+    </div>
+
+    <div class="stat">
+        <h3>7/24</h3>
+        <p>Online Mağaza</p>
+    </div>
+
+    <div class="stat">
+        <h3>CPMX</h3>
+        <p>Premium Market</p>
+    </div>
+
+</div>
+
+<!-- KASALAR -->
 <section id="products">
 
-    <div class="section-title">
+    <div class="section-head">
+        <div class="small">CPMX MARKET</div>
+        <h2>Kasalar</h2>
+        <p>Sana uygun paketi seç.</p>
+    </div>
 
-        <h2>Ürünler</h2>
-
-        <p>
-            CPMX kasa seçenekleri
-        </p>
-
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Kasa ara..."
+            onkeyup="searchProducts()"
+        >
     </div>
 
     <div class="products">
 
-        <!-- 30 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">NORMAL</div>
 
-            <div class="product-icon">📦</div>
+            <h3>30 TL NORMAL KASA</h3>
 
-            <h3>NORMAL KASA</h3>
+            <div class="price">30 TL</div>
 
-            <p>
-                • 50M para<br>
-                • 30K coin
-            </p>
-
-            <div class="price">
-                30 TL
+            <div class="desc">
+                50M para + 30K coin
             </div>
 
-            <button class="buy"
-                onclick="openProduct('NORMAL KASA','30 TL','50M para + 30K coin')">
-                İncele
+            <button onclick="openProduct(
+                '30 TL NORMAL KASA',
+                '30 TL',
+                '50M para + 30K coin'
+            )">
+                Detayları Gör
             </button>
 
         </div>
 
 
-        <!-- 50 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">NORMAL+</div>
 
-            <div class="product-icon">🔥</div>
+            <h3>50 TL NORMAL+ KASA</h3>
 
-            <h3>NORMAL+ KASA</h3>
+            <div class="price">50 TL</div>
 
-            <p>
-                • 50M para<br>
-                • 30K coin<br>
-                • LaFerrari
-            </p>
-
-            <div class="price">
-                50 TL
+            <div class="desc">
+                50M para + 30K coin + LaFerrari
             </div>
 
-            <button class="buy"
-                onclick="openProduct('NORMAL+ KASA','50 TL','50M para + 30K coin + LaFerrari')">
-                İncele
+            <button onclick="openProduct(
+                '50 TL NORMAL+ KASA',
+                '50 TL',
+                '50M para + 30K coin + LaFerrari'
+            )">
+                Detayları Gör
             </button>
 
         </div>
 
 
-        <!-- 100 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">POPÜLER</div>
 
-            <div class="popular">
-                POPÜLER
+            <h3>100 TL PREMİUM KASA</h3>
+
+            <div class="price">100 TL</div>
+
+            <div class="desc">
+                50M para + 30K coin + LaFerrari + istediğin 1 araç
             </div>
 
-            <div class="product-icon">💎</div>
-
-            <h3>PREMİUM KASA</h3>
-
-            <p>
-                • 50M para<br>
-                • 30K coin<br>
-                • LaFerrari<br>
-                • İstediğin 1 araç
-            </p>
-
-            <div class="price">
-                100 TL
-            </div>
-
-            <button class="buy"
-                onclick="openProduct('PREMİUM KASA','100 TL','50M para + 30K coin + LaFerrari + istediğin 1 araç')">
-                İncele
+            <button onclick="openProduct(
+                '100 TL PREMİUM KASA',
+                '100 TL',
+                '50M para + 30K coin + LaFerrari + istediğin 1 araç'
+            )">
+                Detayları Gör
             </button>
 
         </div>
 
 
-        <!-- 150 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">PLUS</div>
 
-            <div class="product-icon">🚀</div>
+            <h3>150 TL PLUS KASA</h3>
 
-            <h3>PLUS KASA</h3>
+            <div class="price">150 TL</div>
 
-            <p>
-                • 50M para<br>
-                • 30K coin<br>
-                • LaFerrari<br>
-                • İstediğin 3 araç
-            </p>
-
-            <div class="price">
-                150 TL
+            <div class="desc">
+                50M para + 30K coin + LaFerrari + istediğin 3 araç
             </div>
 
-            <button class="buy"
-                onclick="openProduct('PLUS KASA','150 TL','50M para + 30K coin + LaFerrari + istediğin 3 araç')">
-                İncele
+            <button onclick="openProduct(
+                '150 TL PLUS KASA',
+                '150 TL',
+                '50M para + 30K coin + LaFerrari + istediğin 3 araç'
+            )">
+                Detayları Gör
             </button>
 
         </div>
 
 
-        <!-- 200 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">PLUS+</div>
 
-            <div class="product-icon">👑</div>
+            <h3>200 TL PLUS+ KASA</h3>
 
-            <h3>PLUS+ KASA</h3>
+            <div class="price">200 TL</div>
 
-            <p>
-                • 50M para<br>
-                • 30K coin<br>
-                • LaFerrari<br>
-                • İstediğin 5 araç
-            </p>
-
-            <div class="price">
-                200 TL
+            <div class="desc">
+                50M para + 30K coin + LaFerrari + istediğin 5 araç
             </div>
 
-            <button class="buy"
-                onclick="openProduct('PLUS+ KASA','200 TL','50M para + 30K coin + LaFerrari + istediğin 5 araç')">
-                İncele
+            <button onclick="openProduct(
+                '200 TL PLUS+ KASA',
+                '200 TL',
+                '50M para + 30K coin + LaFerrari + istediğin 5 araç'
+            )">
+                Detayları Gör
             </button>
 
         </div>
 
 
-        <!-- 230 TL -->
+        <div class="card product">
 
-        <div class="card">
+            <div class="tag">ÖZEL</div>
 
-            <div class="popular">
-                ÖZEL
+            <h3>230 TL ÖZEL KASA</h3>
+
+            <div class="price">230 TL</div>
+
+            <div class="desc">
+                İstediğin eşyalar ve araçlar
             </div>
 
-            <div class="product-icon">💠</div>
-
-            <h3>ÖZEL KASA</h3>
-
-            <p>
-                • İstediğin eşyalar<br>
-                • İstediğin araçlar<br>
-                • Özel içerik
-            </p>
-
-            <div class="price">
-                230 TL
-            </div>
-
-            <button class="buy"
-                onclick="openProduct('ÖZEL KASA','230 TL','İstediğin eşyalar ve araçlar')">
-                İncele
+            <button onclick="openProduct(
+                '230 TL ÖZEL KASA',
+                '230 TL',
+                'İstediğin eşyalar ve araçlar'
+            )">
+                Detayları Gör
             </button>
 
         </div>
@@ -716,52 +992,39 @@ footer{
 
 </section>
 
-
 <!-- AVANTAJLAR -->
-
 <section class="features" id="features">
 
-    <div class="section-title">
-
-        <h2>Neden CPMX?</h2>
-
-        <p>
-            Sade ve modern bir alışveriş deneyimi.
-        </p>
-
+    <div class="section-head">
+        <div class="small">NEDEN CPMX?</div>
+        <h2>Avantajlar</h2>
+        <p>Basit, hızlı ve şık.</p>
     </div>
 
     <div class="feature-grid">
 
         <div class="feature">
-            <div class="feature-icon">⚡</div>
-            <h3>Hızlı</h3>
+            <div class="icon">⚡</div>
+            <h3>Hızlı Sipariş</h3>
             <p>
-                Basit ve hızlı sipariş süreci.
+                Beğendiğin kasayı seç ve Instagram üzerinden
+                kolayca iletişime geç.
             </p>
         </div>
 
         <div class="feature">
-            <div class="feature-icon">🔒</div>
-            <h3>Şeffaf</h3>
+            <div class="icon">★</div>
+            <h3>Premium Paketler</h3>
             <p>
-                Ürün içerikleri açık şekilde gösterilir.
+                Farklı bütçelere uygun çeşitli CPMX kasa seçenekleri.
             </p>
         </div>
 
         <div class="feature">
-            <div class="feature-icon">📱</div>
-            <h3>Mobil Uyumlu</h3>
+            <div class="icon">🔒</div>
+            <h3>Güvenli İletişim</h3>
             <p>
-                Telefon, tablet ve bilgisayarda çalışır.
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">💬</div>
-            <h3>Destek</h3>
-            <p>
-                Sipariş öncesi iletişim desteği.
+                Sipariş işlemleri Instagram üzerinden gerçekleştirilir.
             </p>
         </div>
 
@@ -769,118 +1032,147 @@ footer{
 
 </section>
 
+<!-- NASIL ÇALIŞIR -->
+<section id="how">
+
+    <div class="section-head">
+        <div class="small">3 ADIMDA</div>
+        <h2>Nasıl Çalışır?</h2>
+        <p>Sipariş süreci oldukça basit.</p>
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Kasayı Seç</h3>
+            <p>Sana uygun CPMX paketini seç.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <h3>Instagram'a Gel</h3>
+            <p>Instagram üzerinden CPMX hesabıyla iletişime geç.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Siparişini Ver</h3>
+            <p>Seçtiğin paket hakkında siparişini oluştur.</p>
+        </div>
+
+    </div>
+
+</section>
 
 <!-- CTA -->
+<div class="cta">
 
-<section class="cta">
+    <h2>CPMX'e katılmaya hazır mısın?</h2>
 
-    <div class="cta-box">
+    <p>
+        Kasalardan birini seç ve Instagram üzerinden iletişime geç.
+    </p>
 
-        <h2>
-            CPMX'e hoş geldin.
-        </h2>
+    <a
+        href="https://www.instagram.com/yildizzsefayakup/"
+        target="_blank"
+        class="btn btn-primary"
+    >
+        @yildizzsefayakup
+    </a>
 
-        <p>
-            Sana uygun kasayı seç ve detaylarını incele.
-        </p>
+</div>
 
-        <a href="#products" class="btn primary">
-            Kasaları Gör →
-        </a>
-
-    </div>
-
-</section>
-
-
+<!-- FOOTER -->
 <footer>
-
-    © 2026 CPMX — Tüm hakları saklıdır.
-
+    © 2026 <strong>CPMX</strong> — Premium Digital Market
 </footer>
 
-
-<!-- ÜRÜN MODALI -->
-
+<!-- MODAL -->
 <div class="modal" id="modal">
 
     <div class="modal-box">
 
-        <span class="close"
-              onclick="closeModal()">×</span>
+        <div class="close" onclick="closeModal()">×</div>
 
-        <h2 id="modalTitle">
-            Ürün
-        </h2>
+        <h2 id="modalName"></h2>
 
-        <p id="modalPrice"></p>
+        <div class="modal-price" id="modalPrice"></div>
 
-        <div class="notice" id="modalDescription">
-        </div>
+        <div class="modal-info" id="modalInfo"></div>
 
-        <button class="buy"
-                onclick="contactInstagram()">
-            Instagram'dan İletişime Geç
-        </button>
+        <a
+            href="https://www.instagram.com/yildizzsefayakup/"
+            target="_blank"
+            class="btn btn-primary"
+            style="display:block;text-align:center;"
+        >
+            Instagram'dan Sipariş Ver
+        </a>
 
     </div>
 
 </div>
 
-
 <script>
 
-function openProduct(name,price,description){
+/* ÜRÜN DETAYI */
+function openProduct(name,price,info){
 
-    document.getElementById("modalTitle")
-        .innerText = name;
+    document.getElementById("modalName").innerText = name;
+    document.getElementById("modalPrice").innerText = price;
+    document.getElementById("modalInfo").innerText = info;
 
-    document.getElementById("modalPrice")
-        .innerText = "Fiyat: " + price;
-
-    document.getElementById("modalDescription")
-        .innerText = description;
-
-    document.getElementById("modal")
-        .style.display = "flex";
+    document.getElementById("modal").classList.add("show");
 }
 
+/* MODAL KAPAT */
 function closeModal(){
 
-    document.getElementById("modal")
-        .style.display = "none";
+    document.getElementById("modal").classList.remove("show");
 }
 
-function contactInstagram(){
+/* DIŞARI TIKLAYINCA KAPAT */
+document.getElementById("modal").addEventListener("click",function(e){
 
-    window.open(
-        "https://www.instagram.com/",
-        "_blank"
-    );
-
-}
-
-window.onclick=function(event){
-
-    const modal =
-        document.getElementById("modal");
-
-    if(event.target === modal){
+    if(e.target === this){
         closeModal();
     }
 
-}
+});
 
-document.addEventListener(
-    "keydown",
-    function(e){
+/* KASA ARAMA */
+function searchProducts(){
 
-        if(e.key === "Escape"){
-            closeModal();
+    let input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(function(product){
+
+        let text = product.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            product.style.display = "";
+        }else{
+            product.style.display = "none";
         }
 
+    });
+}
+
+/* ESC */
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closeModal();
     }
-);
+
+});
 
 </script>
 
