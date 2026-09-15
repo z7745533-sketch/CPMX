@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CPMX | Premium Dijital Market</title>
+<meta name="description" content="CPMX Premium Dijital Market - Kasa seçeneklerini incele ve Instagram üzerinden sipariş ver.">
+
+<meta name="google-site-verification" content="8PxjzGWXvgvzi-9Q3kQB0HidqfcOWBIWA-oXTnc0CSk" />
 
 <style>
 *{
@@ -373,7 +377,7 @@ nav{
     font-size:13px;
 }
 
-/* GENERAL SECTION */
+/* SECTIONS */
 section{
     padding:90px 7%;
 }
@@ -403,7 +407,6 @@ section{
 .search-box{
     max-width:600px;
     margin:0 auto 35px;
-    position:relative;
 }
 
 .search-box input{
@@ -433,7 +436,11 @@ section{
     padding:28px;
     border:1px solid #251a30;
     border-radius:18px;
-    background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(124,58,237,.025));
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.035),
+        rgba(124,58,237,.025)
+    );
     overflow:hidden;
     transition:.4s;
 }
@@ -672,7 +679,11 @@ section{
     border:1px solid rgba(168,85,247,.2);
     border-radius:20px;
     padding:35px;
-    background:linear-gradient(135deg,rgba(124,58,237,.07),rgba(0,0,0,.1));
+    background:linear-gradient(
+        135deg,
+        rgba(124,58,237,.07),
+        rgba(0,0,0,.1)
+    );
     text-align:center;
     max-width:900px;
     margin:auto;
@@ -735,7 +746,11 @@ section{
     text-align:center;
     border:1px solid #32203f;
     background:
-        radial-gradient(circle at center,rgba(124,58,237,.15),transparent 60%),
+        radial-gradient(
+            circle at center,
+            rgba(124,58,237,.15),
+            transparent 60%
+        ),
         #0a0610;
 }
 
@@ -902,6 +917,7 @@ footer strong{
 
 /* MOBILE */
 @media(max-width:900px){
+
     .nav-links{
         display:none;
     }
@@ -936,6 +952,7 @@ footer strong{
 }
 
 @media(max-width:500px){
+
     nav{
         padding:0 5%;
     }
@@ -982,12 +999,16 @@ footer strong{
     <div class="intro-content">
         <div class="intro-logo">CPMX</div>
         <div class="intro-text">PREMİUM DİJİTAL MARKET</div>
-        <div class="loading"><span></span></div>
+
+        <div class="loading">
+            <span></span>
+        </div>
     </div>
 </div>
 
 <!-- NAV -->
 <nav>
+
     <div class="nav-logo">CPMX</div>
 
     <div class="nav-links">
@@ -998,17 +1019,20 @@ footer strong{
         <a href="#nasil">Nasıl Çalışır?</a>
     </div>
 
-    <a class="instagram-btn"
-       href="https://www.instagram.com/yildizzsefayakup/"
-       target="_blank">
-       Instagram
+    <a
+        class="instagram-btn"
+        href="https://www.instagram.com/yildizzsefayakup/"
+        target="_blank">
+        Instagram
     </a>
+
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="anasayfa">
 
     <div>
+
         <div class="status">
             <i></i>
             CPMX AKTİF
@@ -1024,16 +1048,23 @@ footer strong{
         </p>
 
         <div class="hero-buttons">
-            <a href="#kasalar" class="main-btn">Kasaları İncele</a>
 
-            <a href="https://www.instagram.com/yildizzsefayakup/"
-               target="_blank"
-               class="second-btn">
-               Instagram'dan Sipariş
+            <a href="#kasalar" class="main-btn">
+                Kasaları İncele
             </a>
+
+            <a
+                href="https://www.instagram.com/yildizzsefayakup/"
+                target="_blank"
+                class="second-btn">
+                Instagram'dan Sipariş
+            </a>
+
         </div>
+
     </div>
 
+    <!-- CPMX LOGO -->
     <div class="logo-showcase">
 
         <div class="dot dot1"></div>
@@ -1058,7 +1089,7 @@ footer strong{
 <div class="stats">
 
     <div class="stat">
-        <div class="stat-number" id="statPackages">6</div>
+        <div class="stat-number">6</div>
         <p>Farklı Kasa</p>
     </div>
 
@@ -1068,7 +1099,9 @@ footer strong{
     </div>
 
     <div class="stat">
-        <div class="stat-number" id="visitorCount">1.284</div>
+        <div class="stat-number" id="visitorCount">
+            1.284
+        </div>
         <p>Toplam Ziyaret</p>
     </div>
 
@@ -1088,59 +1121,168 @@ footer strong{
             type="text"
             id="searchInput"
             placeholder="Kasa ara..."
-            onkeyup="searchProducts()"
-        >
+            onkeyup="searchProducts()">
     </div>
 
     <div class="products" id="products">
 
-        <div class="product" data-name="30 TL NORMAL KASA">
+        <div
+            class="product"
+            data-name="30 TL NORMAL KASA">
+
             <span class="tag">NORMAL</span>
+
             <h3>30 TL NORMAL KASA</h3>
+
             <div class="price">30 TL</div>
-            <p>50M para + 30K coin</p>
-            <button onclick="openProduct(0)">Detayları Gör</button>
+
+            <p>
+                50M para + 30K coin
+            </p>
+
+            <button onclick="openProduct(0)">
+                Detayları Gör
+            </button>
+
         </div>
 
-        <div class="product popular" data-name="50 TL NORMAL+ KASA">
-            <span class="popular-badge">POPÜLER</span>
-            <span class="tag">NORMAL+</span>
-            <h3>50 TL NORMAL+ KASA</h3>
-            <div class="price">50 TL</div>
-            <p>50M para + 30K coin + LaFerrari</p>
-            <button onclick="openProduct(1)">Detayları Gör</button>
+
+        <div
+            class="product popular"
+            data-name="50 TL NORMAL+ KASA">
+
+            <span class="popular-badge">
+                POPÜLER
+            </span>
+
+            <span class="tag">
+                NORMAL+
+            </span>
+
+            <h3>
+                50 TL NORMAL+ KASA
+            </h3>
+
+            <div class="price">
+                50 TL
+            </div>
+
+            <p>
+                50M para + 30K coin + LaFerrari
+            </p>
+
+            <button onclick="openProduct(1)">
+                Detayları Gör
+            </button>
+
         </div>
 
-        <div class="product" data-name="100 TL PREMİUM KASA">
-            <span class="tag">PREMİUM</span>
-            <h3>100 TL PREMİUM KASA</h3>
-            <div class="price">100 TL</div>
-            <p>50M para + 30K coin + LaFerrari + istediğin 1 araç</p>
-            <button onclick="openProduct(2)">Detayları Gör</button>
+
+        <div
+            class="product"
+            data-name="100 TL PREMİUM KASA">
+
+            <span class="tag">
+                PREMİUM
+            </span>
+
+            <h3>
+                100 TL PREMİUM KASA
+            </h3>
+
+            <div class="price">
+                100 TL
+            </div>
+
+            <p>
+                50M para + 30K coin + LaFerrari + istediğin 1 araç
+            </p>
+
+            <button onclick="openProduct(2)">
+                Detayları Gör
+            </button>
+
         </div>
 
-        <div class="product" data-name="150 TL PLUS KASA">
-            <span class="tag">PLUS</span>
-            <h3>150 TL PLUS KASA</h3>
-            <div class="price">150 TL</div>
-            <p>50M para + 30K coin + LaFerrari + istediğin 3 araç</p>
-            <button onclick="openProduct(3)">Detayları Gör</button>
+
+        <div
+            class="product"
+            data-name="150 TL PLUS KASA">
+
+            <span class="tag">
+                PLUS
+            </span>
+
+            <h3>
+                150 TL PLUS KASA
+            </h3>
+
+            <div class="price">
+                150 TL
+            </div>
+
+            <p>
+                50M para + 30K coin + LaFerrari + istediğin 3 araç
+            </p>
+
+            <button onclick="openProduct(3)">
+                Detayları Gör
+            </button>
+
         </div>
 
-        <div class="product" data-name="200 TL PLUS+ KASA">
-            <span class="tag">PLUS+</span>
-            <h3>200 TL PLUS+ KASA</h3>
-            <div class="price">200 TL</div>
-            <p>50M para + 30K coin + LaFerrari + istediğin 5 araç</p>
-            <button onclick="openProduct(4)">Detayları Gör</button>
+
+        <div
+            class="product"
+            data-name="200 TL PLUS+ KASA">
+
+            <span class="tag">
+                PLUS+
+            </span>
+
+            <h3>
+                200 TL PLUS+ KASA
+            </h3>
+
+            <div class="price">
+                200 TL
+            </div>
+
+            <p>
+                50M para + 30K coin + LaFerrari + istediğin 5 araç
+            </p>
+
+            <button onclick="openProduct(4)">
+                Detayları Gör
+            </button>
+
         </div>
 
-        <div class="product" data-name="230 TL ÖZEL KASA">
-            <span class="tag">ÖZEL</span>
-            <h3>230 TL ÖZEL KASA</h3>
-            <div class="price">230 TL</div>
-            <p>İstediğin eşyalar ve araçlar.</p>
-            <button onclick="openProduct(5)">Detayları Gör</button>
+
+        <div
+            class="product"
+            data-name="230 TL ÖZEL KASA">
+
+            <span class="tag">
+                ÖZEL
+            </span>
+
+            <h3>
+                230 TL ÖZEL KASA
+            </h3>
+
+            <div class="price">
+                230 TL
+            </div>
+
+            <p>
+                İstediğin eşyalar ve araçlar.
+            </p>
+
+            <button onclick="openProduct(5)">
+                Detayları Gör
+            </button>
+
         </div>
 
     </div>
@@ -1151,9 +1293,17 @@ footer strong{
 <section>
 
     <div class="section-head">
+
         <span>KARŞILAŞTIR</span>
-        <h2>Kasaları Karşılaştır</h2>
-        <p>Hangi paketin sana uygun olduğunu kolayca gör.</p>
+
+        <h2>
+            Kasaları Karşılaştır
+        </h2>
+
+        <p>
+            Hangi paketin sana uygun olduğunu kolayca gör.
+        </p>
+
     </div>
 
     <div class="compare-wrap">
@@ -1220,34 +1370,60 @@ footer strong{
 <section id="avantajlar">
 
     <div class="section-head">
+
         <span>NEDEN CPMX?</span>
-        <h2>Avantajlar</h2>
+
+        <h2>
+            Avantajlar
+        </h2>
+
     </div>
 
     <div class="advantages">
 
         <div class="advantage">
+
             <div class="icon">⚡</div>
-            <h3>Hızlı Sipariş</h3>
+
+            <h3>
+                Hızlı Sipariş
+            </h3>
+
             <p>
                 Beğendiğin kasayı seç ve Instagram üzerinden kolayca sipariş oluştur.
             </p>
+
         </div>
 
+
         <div class="advantage">
+
             <div class="icon">💎</div>
-            <h3>Premium Paketler</h3>
+
+            <h3>
+                Premium Paketler
+            </h3>
+
             <p>
                 Farklı bütçelere uygun birçok kasa seçeneğini tek yerde bul.
             </p>
+
         </div>
 
+
         <div class="advantage">
+
             <div class="icon">🛡️</div>
-            <h3>Güvenli İletişim</h3>
+
+            <h3>
+                Güvenli İletişim
+            </h3>
+
             <p>
-                Sipariş süreci Instagram üzerinden yürütülür. Sitede şifre gibi hassas bilgiler istenmez.
+                Sipariş süreci Instagram üzerinden yürütülür.
+                Sitede şifre gibi hassas bilgiler istenmez.
             </p>
+
         </div>
 
     </div>
@@ -1258,40 +1434,74 @@ footer strong{
 <section id="yorumlar">
 
     <div class="section-head">
+
         <span>MÜŞTERİLER</span>
-        <h2>Müşteri Yorumları</h2>
-        <p>Gerçek müşterilerden gelen yorumlar burada paylaşılabilir.</p>
+
+        <h2>
+            Müşteri Yorumları
+        </h2>
+
+        <p>
+            Gerçek müşterilerden gelen yorumlar burada paylaşılabilir.
+        </p>
+
     </div>
 
     <div class="review-note">
-        Henüz yorum eklenmedi. Gerçek müşteri yorumlarını aldıktan sonra
-        bu bölüme ekleyebilirsin.
+        Henüz yorum eklenmedi.
+        Gerçek müşteri yorumlarını aldıktan sonra bu bölüme ekleyebilirsin.
     </div>
 
     <div class="reviews">
 
         <div class="review">
-            <div class="review-stars">★★★★★</div>
+
+            <div class="review-stars">
+                ☆☆☆☆☆
+            </div>
+
             <p>
-                Buraya gerçek müşteri yorumunu ekleyebilirsin.
+                Gerçek müşteri yorumunu buraya ekleyebilirsin.
             </p>
-            <div class="review-user">@müşteri</div>
+
+            <div class="review-user">
+                @müşteri
+            </div>
+
         </div>
 
-        <div class="review">
-            <div class="review-stars">★★★★★</div>
-            <p>
-                Buraya gerçek müşteri yorumunu ekleyebilirsin.
-            </p>
-            <div class="review-user">@müşteri</div>
-        </div>
 
         <div class="review">
-            <div class="review-stars">★★★★★</div>
+
+            <div class="review-stars">
+                ☆☆☆☆☆
+            </div>
+
             <p>
-                Buraya gerçek müşteri yorumunu ekleyebilirsin.
+                Gerçek müşteri yorumunu buraya ekleyebilirsin.
             </p>
-            <div class="review-user">@müşteri</div>
+
+            <div class="review-user">
+                @müşteri
+            </div>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="review-stars">
+                ☆☆☆☆☆
+            </div>
+
+            <p>
+                Gerçek müşteri yorumunu buraya ekleyebilirsin.
+            </p>
+
+            <div class="review-user">
+                @müşteri
+            </div>
+
         </div>
 
     </div>
@@ -1302,34 +1512,65 @@ footer strong{
 <section id="nasil">
 
     <div class="section-head">
+
         <span>3 ADIMDA</span>
-        <h2>Nasıl Çalışır?</h2>
+
+        <h2>
+            Nasıl Çalışır?
+        </h2>
+
     </div>
 
     <div class="steps">
 
         <div class="step">
-            <div class="step-number">01</div>
-            <h3>Kasayı Seç</h3>
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Kasayı Seç
+            </h3>
+
             <p>
                 Sana uygun CPMX kasasını seç.
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="step-number">02</div>
-            <h3>Instagram'a Gel</h3>
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Instagram'a Gel
+            </h3>
+
             <p>
                 Sipariş için CPMX Instagram hesabına geç.
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="step-number">03</div>
-            <h3>Siparişini Ver</h3>
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Siparişini Ver
+            </h3>
+
             <p>
                 Seçtiğin kasa ve gerekli bilgileri Instagram üzerinden ilet.
             </p>
+
         </div>
 
     </div>
@@ -1341,9 +1582,13 @@ footer strong{
 
     <div class="security">
 
-        <div class="security-icon">🔐</div>
+        <div class="security-icon">
+            🔐
+        </div>
 
-        <h2>Güvenli Sipariş</h2>
+        <h2>
+            Güvenli Sipariş
+        </h2>
 
         <p>
             CPMX web sitesi üzerinden şifre, hesap parolası veya başka
@@ -1358,7 +1603,9 @@ footer strong{
 <!-- CTA -->
 <div class="cta">
 
-    <h2>CPMX'e Katıl</h2>
+    <h2>
+        CPMX'e Katıl
+    </h2>
 
     <p>
         Kasalarımızı incele ve sipariş için Instagram'dan bize ulaş.
@@ -1373,28 +1620,51 @@ footer strong{
 
 </div>
 
-<!-- CART BUTTON -->
-<div class="cart-float" onclick="openCart()">
+<!-- CART -->
+<div
+    class="cart-float"
+    onclick="openCart()">
+
     🛒
-    <div class="cart-count" id="cartCount">0</div>
+
+    <div
+        class="cart-count"
+        id="cartCount">
+        0
+    </div>
+
 </div>
 
 <!-- PRODUCT MODAL -->
-<div class="modal" id="productModal">
+<div
+    class="modal"
+    id="productModal">
 
     <div class="modal-box">
 
-        <div class="close" onclick="closeModal()">×</div>
+        <div
+            class="close"
+            onclick="closeModal()">
+            ×
+        </div>
 
         <h2 id="modalTitle"></h2>
 
-        <div class="modal-price" id="modalPrice"></div>
+        <div
+            class="modal-price"
+            id="modalPrice">
+        </div>
 
-        <div class="modal-desc" id="modalDesc"></div>
+        <div
+            class="modal-desc"
+            id="modalDesc">
+        </div>
 
         <div class="modal-buttons">
 
-            <button class="add-cart" onclick="addCurrentToCart()">
+            <button
+                class="add-cart"
+                onclick="addCurrentToCart()">
                 🛒 Sepete Ekle
             </button>
 
@@ -1412,24 +1682,44 @@ footer strong{
 </div>
 
 <!-- CART MODAL -->
-<div class="modal" id="cartModal">
+<div
+    class="modal"
+    id="cartModal">
 
     <div class="modal-box">
 
-        <div class="close" onclick="closeCart()">×</div>
+        <div
+            class="close"
+            onclick="closeCart()">
+            ×
+        </div>
 
-        <h2>🛒 Sepetim</h2>
+        <h2>
+            🛒 Sepetim
+        </h2>
 
-        <div class="cart-list" id="cartList"></div>
+        <div
+            class="cart-list"
+            id="cartList">
+        </div>
 
         <div class="cart-total">
-            <span>Toplam</span>
-            <span id="cartTotal">0 TL</span>
+
+            <span>
+                Toplam
+            </span>
+
+            <span id="cartTotal">
+                0 TL
+            </span>
+
         </div>
 
         <div class="modal-buttons">
 
-            <button class="add-cart" onclick="clearCart()">
+            <button
+                class="add-cart"
+                onclick="clearCart()">
                 Sepeti Temizle
             </button>
 
@@ -1446,13 +1736,14 @@ footer strong{
 
 </div>
 
+<!-- FOOTER -->
 <footer>
     © 2026 <strong>CPMX</strong> — Premium Dijital Market
 </footer>
 
 <script>
 
-/* PRODUCTS */
+/* ÜRÜNLER */
 
 const products = [
 
@@ -1498,7 +1789,7 @@ let currentProduct = null;
 let cart = [];
 
 
-/* PRODUCT MODAL */
+/* ÜRÜN DETAY */
 
 function openProduct(index){
 
@@ -1513,27 +1804,32 @@ function openProduct(index){
     document.getElementById("modalDesc").innerText =
         currentProduct.desc;
 
-    document.getElementById("productModal")
+    document
+        .getElementById("productModal")
         .classList.add("active");
 }
 
+
 function closeModal(){
 
-    document.getElementById("productModal")
+    document
+        .getElementById("productModal")
         .classList.remove("active");
 }
 
 
-/* SEARCH */
+/* ARAMA */
 
 function searchProducts(){
 
     const value =
-        document.getElementById("searchInput")
+        document
+        .getElementById("searchInput")
         .value
         .toLowerCase();
 
-    document.querySelectorAll(".product")
+    document
+        .querySelectorAll(".product")
         .forEach(product => {
 
             const name =
@@ -1543,11 +1839,12 @@ function searchProducts(){
                 name.includes(value)
                 ? "block"
                 : "none";
+
         });
 }
 
 
-/* CART */
+/* SEPET */
 
 function addCurrentToCart(){
 
@@ -1562,9 +1859,11 @@ function addCurrentToCart(){
     alert("Ürün sepete eklendi!");
 }
 
+
 function updateCart(){
 
-    document.getElementById("cartCount")
+    document
+        .getElementById("cartCount")
         .innerText = cart.length;
 
     const list =
@@ -1578,7 +1877,8 @@ function updateCart(){
         list.innerHTML =
             '<div class="empty-cart">Sepetiniz boş.</div>';
 
-        totalElement.innerText = "0 TL";
+        totalElement.innerText =
+            "0 TL";
 
         return;
     }
@@ -1594,16 +1894,21 @@ function updateCart(){
         const div =
             document.createElement("div");
 
-        div.className = "cart-item";
+        div.className =
+            "cart-item";
 
         div.innerHTML = `
+
             <div>
+
                 <div class="cart-item-name">
                     ${item.name}
                 </div>
+
                 <div class="cart-item-price">
                     ${item.price} TL
                 </div>
+
             </div>
 
             <div
@@ -1614,11 +1919,13 @@ function updateCart(){
         `;
 
         list.appendChild(div);
+
     });
 
     totalElement.innerText =
         total + " TL";
 }
+
 
 function removeFromCart(index){
 
@@ -1627,6 +1934,7 @@ function removeFromCart(index){
     updateCart();
 }
 
+
 function clearCart(){
 
     cart = [];
@@ -1634,22 +1942,26 @@ function clearCart(){
     updateCart();
 }
 
+
 function openCart(){
 
     updateCart();
 
-    document.getElementById("cartModal")
+    document
+        .getElementById("cartModal")
         .classList.add("active");
 }
 
+
 function closeCart(){
 
-    document.getElementById("cartModal")
+    document
+        .getElementById("cartModal")
         .classList.remove("active");
 }
 
 
-/* CLOSE MODAL BY CLICKING OUTSIDE */
+/* DIŞARI TIKLAMA */
 
 window.addEventListener("click",function(e){
 
@@ -1669,14 +1981,16 @@ window.addEventListener("click",function(e){
 document.addEventListener("keydown",function(e){
 
     if(e.key === "Escape"){
+
         closeModal();
         closeCart();
+
     }
 
 });
 
 
-/* SIMPLE VISITOR DISPLAY */
+/* ZİYARETÇİ SAYACI */
 
 let visitors =
     Number(localStorage.getItem("cpmxVisitors")) || 1284;
@@ -1688,12 +2002,13 @@ localStorage.setItem(
     visitors
 );
 
-document.getElementById("visitorCount")
+document
+    .getElementById("visitorCount")
     .innerText =
     visitors.toLocaleString("tr-TR");
 
 
-/* CART INITIAL */
+/* SEPETİ BAŞLAT */
 
 updateCart();
 
